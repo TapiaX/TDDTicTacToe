@@ -1,5 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
+import tictactoe.backend.ITicTacToe;
+import tictactoe.backend.TicTacToe;
+import tictactoe.frontend.Console;
 
 import static org.junit.Assert.*;
 

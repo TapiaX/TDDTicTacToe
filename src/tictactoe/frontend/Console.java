@@ -1,9 +1,14 @@
+package tictactoe.frontend;
+
+import tictactoe.backend.ITicTacToe;
+import tictactoe.backend.TicTacToe;
+
 import java.util.Scanner;
 
-public class Console {
+public class Console implements ITicTacToeUI{
     public ITicTacToe tres;
     public Console(){
-
+        //do nothing
     }
     public Console(ITicTacToe t){
         addTicTacToe(t);
@@ -32,9 +37,9 @@ public class Console {
         return res;
     }
 
-    public void run() {
+    public void run(){
         Scanner sc = new Scanner(System.in);
-        char actualPlayer='X';
+        //char actualPlayer='X';
         int row,column,errors = 0;
         boolean quit=false,error;
         addTicTacToe(tres);
@@ -43,7 +48,7 @@ public class Console {
             do {
                 //actualPlayer = tres.getMark();
 
-                System.out.println("Is time for " + String.valueOf(actualPlayer));
+                System.out.println("Is time for next player");
                 System.out.println("#row:");
                 error=false;
                 try{
@@ -56,19 +61,19 @@ public class Console {
                 }
                 if (!error) {
                     System.out.print(printBoard());
-                    //edit
-                    actualPlayer = actualPlayer =='X' ? 'O' : 'X';
+                    //actualPlayer = actualPlayer =='X' ? 'O' : 'X';
                 }else
                     errors += 1;
-            }while (!tres.checkTicTacToe()&&!tres.draw());//(tres.continues());
+            }while (!tres.checkTicTacToe()&&!tres.draw());
             int d = 0;
             if (tres.checkTicTacToe()) {
                 System.out.println("<<" + String.valueOf(tres.winner()) + " WINS>>");
             }
-            else
+            else if(tres.draw())
                 System.out.println("GAME TIE");
             System.out.println("New Game (any input); Quit (\"Q\")");
             quit = sc.next().matches("^[qQ]$");
+            if(!quit) tres.create();
         }while(!quit);
         System.out.println(errors+ " errors in key input.");
     }

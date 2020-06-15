@@ -1,4 +1,6 @@
 import org.junit.Test;
+import tictactoe.backend.ITicTacToe;
+import tictactoe.backend.TicTacToe;
 
 import java.util.Arrays;
 
@@ -8,7 +10,7 @@ public class TicTacToeTest {
 
     /*@Test
     public void getRemainingCreatedTest() {
-        ITicTacToe tres = new TicTacToe();
+        tictactoe.backend.ITicTacToe tres = new backend.TicTacToe();
         assertEquals(9, tres.getRemaining());
     }*/
 
@@ -20,7 +22,7 @@ public class TicTacToeTest {
     /*
     @Test
     public void getRemaining1MarkedTest() {
-        ITicTacToe tres = new TicTacToe();
+        tictactoe.backend.ITicTacToe tres = new backend.TicTacToe();
         tres.markMove(0,1);
         assertEquals(8, tres.getRemaining());
     }*/
@@ -41,36 +43,12 @@ public class TicTacToeTest {
     /*
     @Test
     public void getRemaining1NotMarkedTest() {
-        ITicTacToe tres = new TicTacToe();
+        tictactoe.backend.ITicTacToe tres = new backend.TicTacToe();
         tres.markMove(0,1);
         int faltan = tres.getRemaining();
         tres.markMove(0,1);
         assertEquals(faltan, tres.getRemaining());
     }*/
-
-    @Test
-    public void getCellMarkedXTest() {
-        ITicTacToe tres = new TicTacToe();
-        tres.markMove(0,1);
-        tres.markMove(1,0);
-        tres.markMove(1,1);
-        assertEquals('X', tres.getBoard()[0][1]);
-    }
-
-    @Test
-    public void getCellMarkedOTest() {
-        ITicTacToe tres = new TicTacToe();
-        tres.markMove(0,1);
-        tres.markMove(1,0);
-        tres.markMove(1,1);
-        tres.markMove(2,0);
-        assertEquals('O', tres.getBoard()[2][0]);
-    }
-    @Test
-    public void getCellNotMarkedTest(){
-        ITicTacToe tres = new TicTacToe();
-        assertEquals(0, tres.getBoard()[0][0]);
-    }
 
     @Test
     public void checkTicTacToeXWinsTest() {
@@ -93,7 +71,7 @@ public class TicTacToeTest {
         assertFalse(tres.checkTicTacToe());
     }
 
-    @Test
+    @Test //integration
     public void checkTicTacToe2TimesTest() {
         ITicTacToe tres = new TicTacToe();
         tres.markMove(0,1);
@@ -159,7 +137,7 @@ public class TicTacToeTest {
     /*
     @Test
     public void getRemainingTieTest() {
-        ITicTacToe tres = new TicTacToe();
+        tictactoe.backend.ITicTacToe tres = new backend.TicTacToe();
         tres.markMove(0,1);
         tres.markMove(0,2);
         tres.markMove(1,1);
@@ -174,7 +152,7 @@ public class TicTacToeTest {
     /*
     @Test
     public void getRemainingTieFor2TimesTest() {
-        ITicTacToe tres = new TicTacToe();
+        tictactoe.backend.ITicTacToe tres = new backend.TicTacToe();
         tres.markMove(0,1);
         tres.markMove(0,2);
         tres.markMove(1,1);
@@ -189,32 +167,16 @@ public class TicTacToeTest {
         assertNotEquals(remaining, tres.getRemaining());
     }
     */
-    @Test
-    public void getCell2doJuegoTest() {
-        ITicTacToe tres = new TicTacToe();
-        tres.markMove(0,1);
-        tres.markMove(0,2);
-        tres.markMove(1,1);
-        tres.markMove(2,1);
-        tres.markMove(0,0);
-        tres.markMove(2,2);
-        tres.markMove(2,0);
-        tres.markMove(1,0);
-        tres.markMove(1,2);
-        //inicia nuevo juego
-        tres.markMove(0,1);
-        assertNotEquals('X', tres.getBoard()[0][1]);
-    }
     /*
     @Test
     public void getMarkXTest() {
-        ITicTacToe tres = new TicTacToe();
+        tictactoe.backend.ITicTacToe tres = new backend.TicTacToe();
         assertEquals('X', tres.getMark());
     }*/
 
     /*@Test
     public void getMarkOTest() {
-        ITicTacToe tres = new TicTacToe();
+        tictactoe.backend.ITicTacToe tres = new backend.TicTacToe();
         tres.markMove(0,2);
         assertEquals('O', tres.getMark());
     }*/
@@ -258,7 +220,7 @@ public class TicTacToeTest {
     /*
     @Test
     public void continues2CellsMarkedTest(){
-        ITicTacToe tres = new TicTacToe();
+        tictactoe.backend.ITicTacToe tres = new backend.TicTacToe();
         tres.markMove(0,1);
         tres.markMove(1,1);
         assertTrue(tres.continues());
@@ -266,7 +228,7 @@ public class TicTacToeTest {
     /*
     @Test
     public void continuesTieTest() {
-        ITicTacToe tres = new TicTacToe();
+        tictactoe.backend.ITicTacToe tres = new backend.TicTacToe();
         tres.markMove(0,1);
         tres.markMove(0,2);
         tres.markMove(1,1);
@@ -280,7 +242,7 @@ public class TicTacToeTest {
     }*/
     /*@Test
     public void continuesOWinsDiagonalTest() {
-        ITicTacToe tres = new TicTacToe();
+        tictactoe.backend.ITicTacToe tres = new backend.TicTacToe();
         tres.markMove(0,0);
         tres.markMove(1,1);
         tres.markMove(1,0);
@@ -314,7 +276,7 @@ public class TicTacToeTest {
         tres.markMove(0,2);
         assertFalse(tres.draw());
     }
-    @Test
+    @Test // integration
     public void draw2CellsMarkedTest(){
         ITicTacToe tres = new TicTacToe();
         tres.markMove(0,1);

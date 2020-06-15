@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="UILuisTapia">
+    <output-path>$PROJECT_DIR$/out/artifacts/UILuisTapia</output-path>
+    <root id="archive" name="UILuisTapia.jar">
+      <element id="dir-copy" path="$PROJECT_DIR$/out/production/TicTacToe/tictactoe" />
+    </root>
+  </artifact>
+</component>
