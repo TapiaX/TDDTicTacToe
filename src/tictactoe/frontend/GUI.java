@@ -21,6 +21,7 @@ public class GUI extends JPanel implements ITicTacToeUI,MouseListener, ActionLis
 	private JMenuBar menuBar;
 	private JMenuItem reset;
 	private JLabel bar;
+	private JFrame frame;
 	private char player;
 	public GUI(ITicTacToe tres)
 	{	super();
@@ -40,11 +41,14 @@ public class GUI extends JPanel implements ITicTacToeUI,MouseListener, ActionLis
 		reset.setMnemonic('R');
 
 	}
+	public int getU(){return u;}
 	public void setFrame(JFrame frame){
+		this.frame = frame;
 		frame.addMouseListener(this);
 		frame.add(bar,BorderLayout.SOUTH);
 		frame.setJMenuBar(menuBar);
 	}
+	public JFrame getFrame(){ return frame;}
 	private void paintBoard(){
 		paint(this.getGraphics());
 	}
@@ -127,11 +131,11 @@ public class GUI extends JPanel implements ITicTacToeUI,MouseListener, ActionLis
 				marked = new LinkedList<CellValue>();
 				paintBoard();
 			}
-			player = player=='X' ? 'O': 'X';
+
 			if(tres.markMove(i,j))
-			{
-				marked.add(new CellValue(i,j,tres.getBoard()[i][j]));
-				bar.setText(marked.getLast().toString());//+"\t"+e.getY());
+			{	player = tres.getBoard()[i][j];
+				marked.add(new CellValue(i,j,player));
+				bar.setText("Cell marked with "+marked.getLast());
 				paintCell(marked.getLast(),null);
 			}
 			/*if(tres.checkTicTacToe()){
@@ -164,7 +168,7 @@ public class GUI extends JPanel implements ITicTacToeUI,MouseListener, ActionLis
 		}
 		@Override
 		public String toString(){
-			return "["+ (i*3+j+1) +"]= "+m;
+			return "["+ (i*3+j+1) +"] with X";
 		}
 	}
 	public void run() {
