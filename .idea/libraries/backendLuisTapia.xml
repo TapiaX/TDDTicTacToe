@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="backendLuisTapia">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/backendLuisTapia/backendLuisTapia.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
