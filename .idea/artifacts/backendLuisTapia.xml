@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="TicTacToe">
-    <output-path>$PROJECT_DIR$/out/artifacts/TicTacToe</output-path>
-    <root id="archive" name="TicTacToe.jar">
+  <artifact type="jar" name="backendLuisTapia">
+    <output-path>$PROJECT_DIR$/out/artifacts/backendLuisTapia</output-path>
+    <root id="archive" name="backendLuisTapia.jar">
       <element id="directory" name="tictactoe">
         <element id="directory" name="backend">
           <element id="file-copy" path="$PROJECT_DIR$/out/production/TicTacToe/tictactoe/backend/ITicTacToe.class" />

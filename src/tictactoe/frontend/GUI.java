@@ -141,7 +141,7 @@ public class GUI extends JPanel implements ITicTacToeUI,MouseListener, ActionLis
 		if(tres.markMove(i,j))
 		{	player = tres.getBoard()[i][j];
 			marked.add(new CellValue(i,j,player));
-			bar.setText("Cell marked with "+marked.getLast());
+			bar.setText("Cell marked "+marked.getLast());
 			paintCell(marked.getLast(),null);
 		}
 		if(tres.checkTicTacToe()){
@@ -177,7 +177,7 @@ public class GUI extends JPanel implements ITicTacToeUI,MouseListener, ActionLis
 		}
 		@Override
 		public String toString(){
-			return "["+ (i*3+j+1) +"] with X";
+			return "["+ i +"]["+ j +"] with "+ String.valueOf(m);
 		}
 	}
 	public void run() {
