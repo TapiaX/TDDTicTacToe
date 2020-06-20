@@ -1,5 +1,4 @@
 import org.junit.Before;
-import org.junit.Test;
 import tictactoe.backend.ITicTacToe;
 import tictactoe.backend.TicTacToe;
 import tictactoe.frontend.GUI;
@@ -9,7 +8,8 @@ import java.awt.*;
 import java.awt.event.InputEvent;
 import java.awt.image.BufferedImage;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class GUITest {
     private GUI gui;
@@ -24,7 +24,16 @@ public class GUITest {
         robot = new Robot();
 
     }
-    @Test
+
+    public void getUNotZero()
+    {   assertNotEquals(0,gui.getU());
+
+    }
+
+    public void getCoordinateYRow1()
+    {   assertEquals(1,gui.getCoordinateY(200));
+    }
+
     public  void presionarUnaCeldaCambia(){
         int u = gui.getU();
         int x1= frame.getX()+100;

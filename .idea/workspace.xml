@@ -2,14 +2,23 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="UILuisTapia" />
+      <artifact name="TicTacToe" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9ee9014-c86e-4389-9c93-d657e103a2dd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/TicTacToe.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/TicTacToe.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/TicTacToeLuisTapia.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TicTacToe.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TicTacToe.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TicTacToe/TicTacToeLuisTapia.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TicTacToe/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TicTacToe/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TicTacToe/tictactoe/frontend/GUI$CellValue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TicTacToe/tictactoe/frontend/GUI$CellValue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TicTacToe/tictactoe/frontend/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TicTacToe/tictactoe/frontend/GUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/TicTacToe/GUITest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/TicTacToe/GUITest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tictactoe/frontend/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tictactoe/frontend/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/GUITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/GUITest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +33,7 @@
       <list>
         <option value="Interface" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -46,8 +56,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/artifacts/TicTacToe/TicTacToeLuisTapia.jar!/" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/production/TicTacToe/tictactoe/frontend/ITicTacToeUI.class" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
@@ -67,20 +77,13 @@
       <recent name="D:\UMSS\2020\1_2020\ARQUITECTURA DE SOFTWARE\ejercicios\TDDTicTacToe\test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GUITest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="TicTacToeTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <module name="TicTacToe" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="TicTacToeTest" />
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="tictactoe.frontend.GUI" />
-      <module name="TicTacToe" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -117,29 +120,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TicTacToeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TicTacToe" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TicTacToeTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Android JUnit.TicTacToeTest" />
-      <item itemvalue="Application.GUI" />
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.All Tests" />
-      <item itemvalue="JUnit.TicTacToeTest" />
       <item itemvalue="JUnit.GUITest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GUITest" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.GUITest" />
         <item itemvalue="Android JUnit.TicTacToeTest" />
-        <item itemvalue="JUnit.TicTacToeTest" />
       </list>
     </recent_temporary>
   </component>
@@ -165,18 +156,18 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="265" y="113" key="#GUITicTacToe_(1)/0.0.1600.860@0.0.1600.860" timestamp="1591638461870" />
-    <state x="251" y="88" key="#Project_Structure" timestamp="1592236745963">
+    <state x="251" y="88" key="#Project_Structure" timestamp="1592622358835">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="251" y="88" key="#Project_Structure/0.0.1600.860@0.0.1600.860" timestamp="1592236745963" />
+    <state x="251" y="88" key="#Project_Structure/0.0.1600.860@0.0.1600.860" timestamp="1592622358835" />
     <state x="710" y="115" key="#all" timestamp="1591646122106">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="710" y="115" key="#all/0.0.1600.860@0.0.1600.860" timestamp="1591646122106" />
-    <state x="508" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591755111918">
+    <state x="508" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592619661898">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="508" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1591755111918" />
+    <state x="508" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1592619661898" />
     <state x="862" y="297" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1591645981636">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -189,26 +180,26 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="909" y="320" width="407" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1600.860@0.0.1600.860" timestamp="1592247229531" />
-    <state x="877" y="216" key="FileChooserDialogImpl" timestamp="1592236737565">
+    <state x="877" y="216" key="FileChooserDialogImpl" timestamp="1592622345229">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="877" y="216" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1592236737565" />
-    <state width="992" height="215" key="GridCell.Tab.0.bottom" timestamp="1592250746272">
+    <state x="877" y="216" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1592622345229" />
+    <state width="992" height="215" key="GridCell.Tab.0.bottom" timestamp="1592621892054">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="992" height="215" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1592250746272" />
-    <state width="992" height="215" key="GridCell.Tab.0.center" timestamp="1592250746271">
+    <state width="992" height="215" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1592621892054" />
+    <state width="992" height="215" key="GridCell.Tab.0.center" timestamp="1592621892054">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="992" height="215" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1592250746271" />
-    <state width="992" height="215" key="GridCell.Tab.0.left" timestamp="1592250746271">
+    <state width="992" height="215" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1592621892054" />
+    <state width="992" height="215" key="GridCell.Tab.0.left" timestamp="1592621892053">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="992" height="215" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1592250746271" />
-    <state width="992" height="215" key="GridCell.Tab.0.right" timestamp="1592250746271">
+    <state width="992" height="215" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1592621892053" />
+    <state width="992" height="215" key="GridCell.Tab.0.right" timestamp="1592621892054">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="992" height="215" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1592250746271" />
+    <state width="992" height="215" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1592621892054" />
     <state x="265" y="9" key="SettingsEditor" timestamp="1592236466113">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -221,13 +212,29 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="852" y="133" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1600.860@0.0.1600.860" timestamp="1592247000542" />
-    <state x="365" y="81" key="new project wizard" timestamp="1591646210787">
+    <state x="365" y="81" key="new project wizard" timestamp="1592598749071">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="365" y="81" key="new project wizard/0.0.1600.860@0.0.1600.860" timestamp="1591646210787" />
-    <state x="737" y="197" key="run.anything.popup" timestamp="1592248503308">
+    <state x="365" y="81" key="new project wizard/0.0.1600.860@0.0.1600.860" timestamp="1592598749071" />
+    <state x="737" y="197" key="run.anything.popup" timestamp="1592622027652">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="737" y="197" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1592248503308" />
+    <state x="737" y="197" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1592622027652" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/tictactoe/backend/TicTacToe.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/tictactoe/backend/TicTacToe.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

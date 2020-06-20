@@ -2,7 +2,14 @@
   <artifact type="jar" name="UILuisTapia">
     <output-path>$PROJECT_DIR$/out/artifacts/UILuisTapia</output-path>
     <root id="archive" name="UILuisTapia.jar">
-      <element id="dir-copy" path="$PROJECT_DIR$/out/production/TicTacToe/tictactoe" />
+      <element id="directory" name="tictactoe">
+        <element id="directory" name="backend">
+          <element id="file-copy" path="$PROJECT_DIR$/out/production/TicTacToe/tictactoe/frontend/Console.class" />
+          <element id="file-copy" path="$PROJECT_DIR$/out/production/TicTacToe/tictactoe/frontend/GUI$CellValue.class" />
+          <element id="file-copy" path="$PROJECT_DIR$/out/production/TicTacToe/tictactoe/frontend/GUI.class" />
+          <element id="file-copy" path="$PROJECT_DIR$/out/production/TicTacToe/tictactoe/frontend/ITicTacToeUI.class" />
+        </element>
+      </element>
     </root>
   </artifact>
 </component>

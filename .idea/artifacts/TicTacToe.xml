@@ -2,7 +2,12 @@
   <artifact type="jar" name="TicTacToe">
     <output-path>$PROJECT_DIR$/out/artifacts/TicTacToe</output-path>
     <root id="archive" name="TicTacToe.jar">
-      <element id="dir-copy" path="$PROJECT_DIR$/out/production/TicTacToe" />
+      <element id="directory" name="tictactoe">
+        <element id="directory" name="backend">
+          <element id="file-copy" path="$PROJECT_DIR$/out/production/TicTacToe/tictactoe/backend/ITicTacToe.class" />
+          <element id="file-copy" path="$PROJECT_DIR$/out/production/TicTacToe/tictactoe/backend/TicTacToe.class" />
+        </element>
+      </element>
     </root>
   </artifact>
 </component>
