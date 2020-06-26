@@ -1,5 +1,8 @@
-import tictactoe.backend.*;
-import tictactoe.frontend.*;
+import tictactoe.backend.ITicTacToe;
+import tictactoe.backend.TicTacToe;
+import tictactoe.frontend.ITicTacToeUI;
+import tictactoe.frontend.GUI;
+import tictactoe.frontend.Console;
 
 public class Main {
     public static void main(String args[]){
