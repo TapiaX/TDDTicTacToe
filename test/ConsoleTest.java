@@ -13,7 +13,7 @@ public class ConsoleTest {
     @Before
     public void init(){
         tres = new TicTacToe();
-        console =  new Console();
+        console =  new Console(tres);
     }
     @Test
     public void startConsoleSameObject(){

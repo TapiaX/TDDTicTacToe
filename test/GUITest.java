@@ -15,7 +15,7 @@ public class GUITest {
     private GUI gui;
     private Robot robot;
     private JFrame frame;
-    @Before
+    //@Before
     public void init() throws java.awt.AWTException{
         ITicTacToe game = new TicTacToe();
         gui =  new GUI(game);
