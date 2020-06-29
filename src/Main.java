@@ -11,6 +11,5 @@ public class Main {
         ITicTacToeUI gui = new GUI(game);
         gui.run();
         console.run();
-
     }
 }

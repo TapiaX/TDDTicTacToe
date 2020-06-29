@@ -9,5 +9,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="junit:junit:4.12" level="project" />
+    <orderEntry type="library" name="backendLuisTapia" level="project" />
+    <orderEntry type="library" name="ConsoleLuisTapia" level="project" />
+    <orderEntry type="library" name="GUILuisTapia" level="project" />
   </component>
 </module>

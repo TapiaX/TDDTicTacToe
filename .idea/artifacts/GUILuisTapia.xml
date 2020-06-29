@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="GUILuisTapia">
+    <output-path>$PROJECT_DIR$/out/artifacts</output-path>
+    <root id="archive" name="GUILuisTapia.jar">
+      <element id="directory" name="tictactoe">
+        <element id="directory" name="frontend">
+          <element id="file-copy" path="$PROJECT_DIR$/out/production/TDDTicTacToe/tictactoe/frontend/GUI.class" />
+          <element id="file-copy" path="$PROJECT_DIR$/out/production/TDDTicTacToe/tictactoe/frontend/GUITest.class" />
+          <element id="file-copy" path="$PROJECT_DIR$/out/production/TDDTicTacToe/tictactoe/frontend/ITicTacToeUI.class" />
+          <element id="file-copy" path="$PROJECT_DIR$/src/tictactoe/frontend/GUITest.java" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
