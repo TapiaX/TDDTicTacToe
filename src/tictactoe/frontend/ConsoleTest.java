@@ -1,3 +1,5 @@
+package tictactoe.frontend;
+
 import org.junit.Before;
 import org.junit.Test;
 import tictactoe.backend.ITicTacToe;

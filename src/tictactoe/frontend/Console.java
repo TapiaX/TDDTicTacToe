@@ -7,23 +7,23 @@ import java.util.Scanner;
 
 public class Console implements ITicTacToeUI{
     public ITicTacToe tres;
-    public Console(){
+    Console(){
         //do nothing
     }
     public Console(ITicTacToe t){
         addTicTacToe(t);
     }
-    public ITicTacToe addTicTacToe(ITicTacToe t){
+    ITicTacToe addTicTacToe(ITicTacToe t){
         if(tres==null)
             tres = new TicTacToe();
         tres = t;
         return tres;
     }
-    public int getNumber(String i){
+    int getNumber(String i){
         return Integer.parseInt(i);
     }
 
-    public String printBoard() {
+    private String stringBoard() {
         String res="";
         char[][] board= tres.getBoard();
         for(int i=0;i<3;i++){
@@ -60,7 +60,7 @@ public class Console implements ITicTacToeUI{
                     error=true;
                 }
                 if (!error) {
-                    System.out.print(printBoard());
+                    System.out.print(stringBoard());
                     //actualPlayer = actualPlayer =='X' ? 'O' : 'X';
                 }else
                     errors += 1;

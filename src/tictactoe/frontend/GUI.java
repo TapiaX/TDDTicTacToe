@@ -14,24 +14,20 @@ public class GUI extends JPanel implements ITicTacToeUI,MouseListener, ActionLis
 
 	private ITicTacToe tres;
 	private int u;
-	private LinkedList<CellValue> marked;
 	private JMenuBar menuBar;
 	private JMenuItem reset;
+	private JMenuItem exit;
 	private JLabel bar;
 	private JFrame frame;
-	private char player;
 	private String message;
+
 
 	public GUI(ITicTacToe tres)
 	{	super();
-		player = 'X';
 		if(tres==null)
 			tres =  new TicTacToe();
 		this.tres = tres;
-
-
-		this.setBackground(Color.BLACK);
-		marked = new LinkedList<CellValue>();
+		this.setBackground(Color.DARK_GRAY);
 		bar = new JLabel("Starting");
 		menuBar = new JMenuBar();
 		JMenu menu = new JMenu("Game");
@@ -41,43 +37,44 @@ public class GUI extends JPanel implements ITicTacToeUI,MouseListener, ActionLis
 		reset.addActionListener(this);
 		reset.setMnemonic('R');
 		menu.add(reset);
+		exit = new JMenuItem("Exit");
+		exit.addActionListener(this);
+		exit.setMnemonic('X');
+		menu.add(exit);
 		message = "";
 
 	}
-	public int getU(){return u;}
-	public void setFrame(JFrame frame){
+	int getU(){
+		return u = Math.min(getHeight(),getWidth())/3;
+	}
+	void setFrame(JFrame frame){
 		this.frame = frame;
 		frame.addMouseListener(this);
 		frame.add(bar,BorderLayout.SOUTH);
 		frame.setJMenuBar(menuBar);
 	}
-	public JFrame getFrame(){ return frame;}
+	JFrame getFrame(){ return frame;}
 	private void paintBoard(){
 		paint(this.getGraphics());
 	}
 	public void paint(Graphics g){
 		Rectangle b = frame.getBounds();
 		frame.setBounds(b.x,b.y,b.height*25/28,b.height);
-		u = Math.min(getHeight(),getWidth())/3;
-		g.setColor(Color.BLACK);
+		getU();
+		g.setColor(getBackground());
 		g.fillRect(0, 0, u*3,u*3);
 		g.setColor(Color.WHITE);
 		for(int i=0;i<=u*3;i+=u){
 			g.drawLine(0,i,u*3,i);
 			g.drawLine(i,0,i,u*3);
 		}
-		/*for(CellValue c : marked){
-			paintCell(c,g);
-		}*/
 		char tab[][] = tres.getBoard();
 		for(int i = 0;i<3;i++){
 			for(int j = 0;j<3;j++){
 				paintCell(i,j,tab[i][j], g);
 			}
 		}
-
 		paintString(g);
-		//repaint();
 	}
 
 	private void paintCell(int i, int j,int m, Graphics g)
@@ -108,29 +105,25 @@ public class GUI extends JPanel implements ITicTacToeUI,MouseListener, ActionLis
 		g.setFont(new Font(Font.MONOSPACED,Font.BOLD, u/2));
 		g.drawString(message,2*u/3,(int)(u*1.5));
 	}
-	public int getCoordinateY(int y){
+	int getCoordinateY(int y){
 		return (y-55)/u;
 	}
-	public int getCoordinateX(int x){
+	int getCoordinateX(int x){
 		return x/u;
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-
-	}
+	public void mouseClicked(MouseEvent arg0) {}
 
 	@Override
-	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-
+	public void mouseEntered(MouseEvent arg0)
+	{	setBackground(Color.BLACK);
+		repaint();
 	}
-
 	@Override
 	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-
+		setBackground(Color.DARK_GRAY);
+		repaint();
 	}
 
 	@Override
@@ -143,28 +136,24 @@ public class GUI extends JPanel implements ITicTacToeUI,MouseListener, ActionLis
 					                                                                     "Question for new game",
 					                                                                      JOptionPane.YES_NO_OPTION);
 			if(newG) {
-				tres.create();
-				marked.clear();
-				message = "";
-				repaint();
+				restart();
+				bar.setText("Starting new game");
 			} else {
-				frame.setVisible(false);
-				frame.dispose();
+				close();
 			}
 		}
 
 		else if(tres.markMove(i,j))
-		{	player = tres.getBoard()[i][j];
-			marked.add(new CellValue(i,j,player));
-			bar.setText("Cell marked "+marked.getLast());
+		{	bar.setText("Cell marked ["+ i +"]["+ j +"]");
 			repaint();
+			if(tres.checkTicTacToe()){
+				paintString(null,tres.winner()," WINS");
+			}
+			else if(tres.draw()){
+				paintString(null,tres.winner(),"DRAW");
+			}
 		}
-		if(tres.checkTicTacToe()){
-			paintString(null,tres.winner()," WINS");
-		}
-		if(tres.draw()){
-			paintString(null,tres.winner(),"DRAW");
-		}
+
 	}
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
@@ -174,34 +163,34 @@ public class GUI extends JPanel implements ITicTacToeUI,MouseListener, ActionLis
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==reset)
-		{
-			tres.create();
-			marked.clear();
-			message = "";
-			repaint();
+		{	restart();
 			bar.setText("Reset");
 		}
-	}
-	private class CellValue{
-		int i,j;
-		char m;
-		public CellValue(int i,int j,char m)
-		{	this.i = i;
-			this.j = j;
-			this.m = m;
-		}
-		@Override
-		public String toString(){
-			return "["+ i +"]["+ j +"] with "+ String.valueOf(m);
+		else if (e.getSource()==exit){
+			close();
 		}
 	}
+	private void restart(){
+		tres.create();
+		message = "";
+		repaint();
+	}
+	private void close(){
+		frame.setVisible(false);
+		this.removeAll();
+		frame.dispose();
+	}
+
 	public void run() {
-		JFrame frame = new JFrame("backend.TicTacToe");
+		JFrame frame = new JFrame("TicTacToe GUI");
 		setFrame(frame);
 		frame.add(this);
 		frame.setSize(500,560);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		try{Thread.sleep(50);}catch (Exception e){
+			e.printStackTrace();
+		}
 	}
 
 }
