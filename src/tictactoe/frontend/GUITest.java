@@ -13,7 +13,7 @@ import java.awt.image.BufferedImage;
 
 import static org.junit.Assert.*;
 
-public class GUITest {
+class GUITest {
     private GUI gui;
 
     @Before

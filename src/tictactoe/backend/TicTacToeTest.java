@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
-public class TicTacToeTest {
+class TicTacToeTest {
 
     /*@Test
     public void getRemainingCreatedTest() {
