@@ -1,5 +1,7 @@
 package tictactoe.backend;
 
+import tictactoe.frontend.ITicTacToeUI;
+
 public class TicTacToe implements ITicTacToe {
     private ChangeManager changeManager;
     private char cells[][];
@@ -7,13 +9,11 @@ public class TicTacToe implements ITicTacToe {
     private boolean someoneWins;
     private boolean xStarts;
     public TicTacToe()
-    {   addChangeManager(ConcreteChangeManager.getInstance());
+    {   this.changeManager = ChangeManager.getInstance();
         cells = new char[3][3];
         create();
     }
-    private void addChangeManager(ChangeManager changeManager){
-        this.changeManager = changeManager;
-    }
+
     @Override
     public void create(){
         for(int i=0;i<3;i++){
@@ -24,7 +24,7 @@ public class TicTacToe implements ITicTacToe {
         remaining = 9;
         someoneWins=false;
         xStarts=true;
-        notifyBoard();
+        notifyObservers();
     }
 
     @Override
@@ -34,9 +34,8 @@ public class TicTacToe implements ITicTacToe {
         if(existedAndFree) {
             cells[row][column] = getMark();
             remaining--;
-            notifyBoard();
             if(remaining<=4) someoneWins = checkWinner(row,column);
-            if(checkTicTacToe()||draw()) notifyFinish();
+            notifyObservers();
         }
         return existedAndFree&&!existsAndFree(row,column);
     }
@@ -121,22 +120,11 @@ public class TicTacToe implements ITicTacToe {
 
 
     @Override
-    public void attach(Observer observer) {
+    public void addListener(ITicTacToeUI observer) {
         changeManager.register(this,observer);
     }
 
-    @Override
-    public void detach(Observer observer) {
-        changeManager.unregister(this,observer);
-    }
-
-    @Override
-    public void notifyBoard() {
-        changeManager.notifyBoard(this);
-    }
-
-    @Override
-    public void notifyFinish() {
-        changeManager.notifyFinish(this);
+    private void notifyObservers(){
+        changeManager.notifyObservers(this);
     }
 }

@@ -8,6 +8,7 @@ import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
+//public //for testing only
 class TicTacToeTest {
 
     @Test

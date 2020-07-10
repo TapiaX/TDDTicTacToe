@@ -1,7 +1,9 @@
 package tictactoe.frontend;
 
-import tictactoe.backend.Observer;
 
-public interface ITicTacToeUI extends Observer {
+import tictactoe.backend.ITicTacToe;
+
+public interface ITicTacToeUI {
     public void run();
+    public void update();
 }

@@ -7,6 +7,7 @@ import tictactoe.backend.TicTacToe;
 
 import static org.junit.Assert.*;
 
+//public //for testing only
 class GUITest {
     private GUI gui;
 

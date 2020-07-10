@@ -1,9 +1,7 @@
 package tictactoe.frontend;
 
 import tictactoe.backend.ITicTacToe;
-import tictactoe.backend.Observable;
 import tictactoe.backend.TicTacToe;
-
 
 import javax.swing.JPanel;
 import javax.swing.JMenuBar;
@@ -46,7 +44,7 @@ public class GUI extends JPanel implements ITicTacToeUI,MouseListener,ActionList
 		exit.setMnemonic('X');
 		menuBar.add(exit);
 		message = "";
-		tres.attach(this);
+		tres.addListener(this);
 	}
 
 	int getU(int height, int width){
@@ -120,18 +118,22 @@ public class GUI extends JPanel implements ITicTacToeUI,MouseListener,ActionList
 	}
 
 	private void actualizeMessage(){
+		message = "";
 		if(tres.checkTicTacToe()){
-			message = "";
 			paintString(null,tres.winner()," WINS");
-			repaint();
-			newQuestion();
+			menuBar.add(reset);
 		}
 		else if(tres.draw()){
-			message = "";
+
 			paintString(null,"DRAW");
-			repaint();
-			newQuestion();
+			menuBar.add(reset);
 		}
+		else
+			menuBar.remove(reset);
+		//repaint();
+		frame.setSize(frame.getWidth()+10,frame.getHeight());
+		frame.repaint();
+
 	}
 	@Override
 	public void mouseClicked(MouseEvent arg0) {}
@@ -151,9 +153,9 @@ public class GUI extends JPanel implements ITicTacToeUI,MouseListener,ActionList
 		int j = getCoordinateOverU(e.getX());
 		if(tres.markMove(i,j))
 		{	bar.setText("Cell marked ["+ i +"]["+ j +"]");
-			//repaint();
+
 		}
-		//actualizeMessage();
+
 	}
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
@@ -169,10 +171,6 @@ public class GUI extends JPanel implements ITicTacToeUI,MouseListener,ActionList
 		}
 	}
 
-	private void newQuestion(){
-        menuBar.add(reset);
-	}
-
 	private void restart(){
 		tres.create();
 		bar.setText("Starting new game");
@@ -182,7 +180,7 @@ public class GUI extends JPanel implements ITicTacToeUI,MouseListener,ActionList
 
 	private void close(){
 		frame.setVisible(false);
-		//frame.dispose();
+		//frame.removeAll();
 	}
 
 	public void run() {
@@ -191,19 +189,11 @@ public class GUI extends JPanel implements ITicTacToeUI,MouseListener,ActionList
 		frame.add(this);
 		frame.setSize(500,560);
 		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 	}
+
 	@Override
-	public void updateBoard(Observable subject) {
-		menuBar.remove(reset);
-		message = "";
-		repaint();
-		frame.repaint();
-	}
-	@Override
-	public void updateFinish(Observable subject) {
+	public void update() {
 		actualizeMessage();
-		repaint();
-		frame.repaint();
 	}
 }

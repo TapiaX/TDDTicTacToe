@@ -8,8 +8,8 @@ import tictactoe.frontend.Console;
 
 import static org.junit.Assert.*;
 
-
-public class ConsoleTest {
+//public //for testing only
+class ConsoleTest {
     private Console console;
     private ITicTacToe tres;
     @Before

@@ -1,7 +1,6 @@
 package tictactoe.frontend;
 
 import tictactoe.backend.ITicTacToe;
-import tictactoe.backend.Observable;
 import tictactoe.backend.TicTacToe;
 import java.util.Scanner;
 
@@ -9,11 +8,11 @@ public class Console implements ITicTacToeUI{
 
     private ITicTacToe tres;
     Console(){
-        //do nothing
+        //does nothing
     }
     public Console(ITicTacToe t){
         addTicTacToe(t);
-        tres.attach(this);
+        tres.addListener(this);
     }
     ITicTacToe addTicTacToe(ITicTacToe t){
         if(tres==null)
@@ -41,7 +40,6 @@ public class Console implements ITicTacToeUI{
 
     public void run(){
         Scanner sc = new Scanner(System.in);
-        //char actualPlayer='X';
         int row=0,column=0,errors = 0;
         boolean quit=false,error;
         addTicTacToe(tres);
@@ -76,20 +74,23 @@ public class Console implements ITicTacToeUI{
     }
 
     @Override
-    public void updateBoard(Observable subject) {
-       System.out.println(stringBoard());
-        System.out.println("Is time for next player");
-        System.out.println("#row:");
-    }
-
-    @Override
-    public void updateFinish(Observable subject) {
+    public void update() {
+        boolean finished = false;
+        System.out.println(stringBoard());
         if (tres.checkTicTacToe()) {
             System.out.println("<<" + String.valueOf(tres.winner()) + " WINS>>");
+            finished = true;
         }
         else if(tres.draw()) {
             System.out.println("GAME TIE");
+            finished = true;
         }
-        System.out.println("New Game (any input); Quit (\"Q\")");
+
+        if(finished)
+            System.out.println("New Game (any input); Quit (\"Q\")");
+        else{
+            System.out.println("Is time for next player");
+            System.out.println("#row:");
+        }
     }
 }
