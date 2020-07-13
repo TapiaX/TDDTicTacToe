@@ -2,6 +2,7 @@ package tictactoe.frontend;
 
 import tictactoe.backend.ITicTacToe;
 import tictactoe.backend.TicTacToe;
+import tictactoe.controller.MyEvent;
 
 import javax.swing.JPanel;
 import javax.swing.JMenuBar;
@@ -117,24 +118,6 @@ public class GUI extends JPanel implements ITicTacToeUI,MouseListener,ActionList
 		return distance/u;
 	}
 
-	private void actualizeMessage(){
-		message = "";
-		if(tres.checkTicTacToe()){
-			paintString(null,tres.winner()," WINS");
-			menuBar.add(reset);
-		}
-		else if(tres.draw()){
-
-			paintString(null,"DRAW");
-			menuBar.add(reset);
-		}
-		else
-			menuBar.remove(reset);
-		//repaint();
-		frame.setSize(frame.getWidth()+10,frame.getHeight());
-		frame.repaint();
-
-	}
 	@Override
 	public void mouseClicked(MouseEvent arg0) {}
 	@Override
@@ -193,7 +176,26 @@ public class GUI extends JPanel implements ITicTacToeUI,MouseListener,ActionList
 	}
 
 	@Override
-	public void update() {
-		actualizeMessage();
+	public void update(MyEvent event){
+		message = "";
+		switch(event.getPropertyName()) {
+			case "winner":
+				if (tres.checkTicTacToe()) {
+					paintString(null, tres.winner(), " WINS");
+					menuBar.add(reset);
+				} else if (tres.draw()) {
+
+					paintString(null, "DRAW");
+					menuBar.add(reset);
+				}
+				break;
+			case "create":
+			case "markMove":
+				menuBar.remove(reset);
+			//repaint();
+			default:
+		}
+		frame.setSize(frame.getWidth() + 10, frame.getHeight());
+		frame.repaint();
 	}
 }

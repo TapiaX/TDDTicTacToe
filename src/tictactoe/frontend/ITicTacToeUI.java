@@ -3,7 +3,6 @@ package tictactoe.frontend;
 
 import tictactoe.backend.ITicTacToe;
 
-public interface ITicTacToeUI {
+public interface ITicTacToeUI extends IObserver{
     public void run();
-    public void update();
 }

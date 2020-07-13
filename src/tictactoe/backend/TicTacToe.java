@@ -24,7 +24,7 @@ public class TicTacToe implements ITicTacToe {
         remaining = 9;
         someoneWins=false;
         xStarts=true;
-        notifyObservers();
+        notifyObservers("create");
     }
 
     @Override
@@ -34,8 +34,9 @@ public class TicTacToe implements ITicTacToe {
         if(existedAndFree) {
             cells[row][column] = getMark();
             remaining--;
+            notifyObservers("markMove");
             if(remaining<=4) someoneWins = checkWinner(row,column);
-            notifyObservers();
+            if(checkTicTacToe()||draw()) notifyObservers("winner");
         }
         return existedAndFree&&!existsAndFree(row,column);
     }
@@ -124,7 +125,7 @@ public class TicTacToe implements ITicTacToe {
         changeManager.register(this,observer);
     }
 
-    private void notifyObservers(){
-        changeManager.notifyObservers(this);
+    private void notifyObservers(String name){
+        changeManager.notifyObservers(this,name);
     }
 }

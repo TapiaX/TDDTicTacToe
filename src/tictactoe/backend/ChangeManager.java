@@ -1,5 +1,6 @@
 package tictactoe.backend;
 
+import tictactoe.controller.MyEvent;
 import tictactoe.frontend.ITicTacToeUI;
 import java.util.List;
 import java.util.ArrayList;
@@ -35,11 +36,17 @@ class ChangeManager {
         }
     }
 
-    public void notifyObservers(ITicTacToe observable){
+    public void notifyObservers(ITicTacToe observable,String name){
         if(mapping.containsKey(observable)) {
+            MyEvent e;
+            try {
+                e = new MyEvent(observable, name);
+            }catch(Exception ex){
+                e = new MyEvent(observable, name,false,true);
+            }
             for (ITicTacToeUI observer : mapping.get(observable)) {
                 if(observer!=null)
-                    observer.update();
+                    observer.update(e);
             }
         }
     }

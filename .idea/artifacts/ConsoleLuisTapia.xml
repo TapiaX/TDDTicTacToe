@@ -5,6 +5,7 @@
       <element id="directory" name="tictactoe">
         <element id="directory" name="frontend">
           <element id="file-copy" path="$PROJECT_DIR$/out/production/TDDTicTacToe/tictactoe/frontend/Console.class" />
+          <element id="file-copy" path="$PROJECT_DIR$/out/production/TDDTicTacToe/tictactoe/frontend/IObserver.class" />
           <element id="file-copy" path="$PROJECT_DIR$/out/production/TDDTicTacToe/tictactoe/frontend/ITicTacToeUI.class" />
           <element id="file-copy" path="$PROJECT_DIR$/src/tictactoe/frontend/ConsoleTest.java" />
         </element>

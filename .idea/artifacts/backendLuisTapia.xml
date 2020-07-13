@@ -5,9 +5,13 @@
       <element id="directory" name="tictactoe">
         <element id="directory" name="backend">
           <element id="file-copy" path="$PROJECT_DIR$/out/production/TDDTicTacToe/tictactoe/backend/ChangeManager.class" />
+          <element id="file-copy" path="$PROJECT_DIR$/out/production/TDDTicTacToe/tictactoe/backend/IObservable.class" />
           <element id="file-copy" path="$PROJECT_DIR$/out/production/TDDTicTacToe/tictactoe/backend/ITicTacToe.class" />
           <element id="file-copy" path="$PROJECT_DIR$/out/production/TDDTicTacToe/tictactoe/backend/TicTacToe.class" />
           <element id="file-copy" path="$PROJECT_DIR$/src/tictactoe/backend/TicTacToeTest.java" />
+        </element>
+        <element id="directory" name="controller">
+          <element id="file-copy" path="$PROJECT_DIR$/out/production/TDDTicTacToe/tictactoe/controller/MyEvent.class" />
         </element>
       </element>
     </root>

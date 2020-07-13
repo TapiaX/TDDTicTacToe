@@ -2,6 +2,8 @@ package tictactoe.frontend;
 
 import tictactoe.backend.ITicTacToe;
 import tictactoe.backend.TicTacToe;
+import tictactoe.controller.MyEvent;
+
 import java.util.Scanner;
 
 public class Console implements ITicTacToeUI{
@@ -44,6 +46,7 @@ public class Console implements ITicTacToeUI{
         boolean quit=false,error;
         addTicTacToe(tres);
         String input = "";
+        System.out.println("Starting a new game of TicTacToe");
         System.out.println("Is time for next player");
         System.out.println("#row:");
         do{ error=false;
@@ -52,7 +55,7 @@ public class Console implements ITicTacToeUI{
                 if((tres.draw()||tres.checkTicTacToe())){
                     quit = input.matches("^[qQ]$");
                     if(!quit) {
-                        System.out.println("New Game of TicTacToe");
+                        //System.out.println("New Game of TicTacToe");
                         tres.create();
                         input = sc.next();
                     }
@@ -74,23 +77,25 @@ public class Console implements ITicTacToeUI{
     }
 
     @Override
-    public void update() {
-        boolean finished = false;
-        System.out.println(stringBoard());
-        if (tres.checkTicTacToe()) {
-            System.out.println("<<" + String.valueOf(tres.winner()) + " WINS>>");
-            finished = true;
-        }
-        else if(tres.draw()) {
-            System.out.println("GAME TIE");
-            finished = true;
-        }
-
-        if(finished)
-            System.out.println("New Game (any input); Quit (\"Q\")");
-        else{
-            System.out.println("Is time for next player");
-            System.out.println("#row:");
+    public void update(MyEvent event) {
+        switch(event.getPropertyName()) {
+            case "winner":
+                if (tres.checkTicTacToe()) {
+                    System.out.println("<<" + String.valueOf(tres.winner()) + " WINS>>");
+                } else if (tres.draw()) {
+                    System.out.println("GAME TIE");
+                }
+                System.out.println("New Game (any input); Quit (\"Q\")");
+                break;
+            case "create":
+                System.out.println("Starting a new game of TicTacToe");
+            case "markMove":
+                System.out.println(stringBoard());
+                System.out.println("Is time for next player");
+                System.out.println("#row:");
+                break;
+            default:
+                System.out.println(stringBoard());
         }
     }
 }
